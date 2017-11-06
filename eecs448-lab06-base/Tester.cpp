@@ -1,3 +1,5 @@
+//Written by Blaine Edmondson, 2633692
+
 #include "Tester.h"
 Tester::Tester()
 {
@@ -8,7 +10,7 @@ void Tester::isEmptyTest()
 	LinkedListOfInts testList1;
 	LinkedListOfInts testList2;
 
-	std::cout << "Test 1: Testing isEmpty on an empty list\n";
+	std::cout << "\nTest 1: Testing isEmpty on an empty list\n";
 	
 	if(testList1.isEmpty() == true)
 	{
@@ -19,7 +21,7 @@ void Tester::isEmptyTest()
 		std::cout << "Test 1: failed\n";
 	}
 
-	std::cout << "Test 2: Testing isEmpty on a list with one element (using addBack)\n";
+	std::cout << "\nTest 2: Testing isEmpty on a list with one element (using addBack)\n";
 	testList1.addBack(1);
 
 	if(testList1.isEmpty() == true)
@@ -32,7 +34,7 @@ void Tester::isEmptyTest()
 	}
 
 
-	std::cout << "Test 3: Testing isEmpty on a list with one element (using addFront)\n";
+	std::cout << "\nTest 3: Testing isEmpty on a list with one element (using addFront)\n";
 	testList2.addFront(1);
 
 	if(testList2.isEmpty() == true)
@@ -48,7 +50,7 @@ void Tester::sizeTestEmptyList()
 {
 	LinkedListOfInts testList1;
 	int size = testList1.size();
-	std::cout << "Test 4: Testing size() on an empty list.\n";
+	std::cout << "\nTest 4: Testing size() on an empty list.\n";
 
 	if(size != 0)
 	{
@@ -64,7 +66,7 @@ void Tester::sizeTestPopulatedList()
 	LinkedListOfInts testList1;
 	LinkedListOfInts testList2;
 
-	std::cout << "Test 5: Testing size() on a list of 100 elements (using add front).\n";
+	std::cout << "\nTest 5: Testing size() on a list of 100 elements (using add front).\n";
 
 	for(int i = 0; i < 100; i++)
 	{
@@ -81,7 +83,7 @@ void Tester::sizeTestPopulatedList()
 	{
 		std::cout << "Test 5: passed\n";
 	}
-	std::cout << "Test 6: Testing size() on a list of 100 elements (using add back).\n";
+	std::cout << "\nTest 6: Testing size() on a list of 100 elements (using add back).\n";
 	if(testList2.size() != 100)
 	{
 		
@@ -96,7 +98,7 @@ void Tester::searchTestEmptyList()
 {
 	LinkedListOfInts testList;
 
-	std::cout << "Test 7: Testing search() on an empty list.\n";
+	std::cout << "\nTest 7: Testing search() on an empty list.\n";
 
 	if(testList.search(1) == true)
 	{
@@ -118,7 +120,7 @@ void Tester::searchTestPopulatedList()
 		testList2.addBack(i);
 	}
 
-	std::cout << "Test 8: Testing search() on a list with 100 elements (using addFront).\n";
+	std::cout << "\nTest 8: Testing search() on a list with 100 elements (using addFront).\n";
 
 	if(testList1.search(20) == true)//just picked a random number....
 	{
@@ -129,7 +131,7 @@ void Tester::searchTestPopulatedList()
 		std::cout << "Test 8: failed\n";
 	}
 
-	std::cout << "Test 9: Testing search() on a list with 100 elements (using addBack).\n";
+	std::cout << "\nTest 9: Testing search() on a list with 100 elements (using addBack).\n";
 
 	if(testList2.search(20) == true)//just picked a random number....
 	{
@@ -146,7 +148,7 @@ void Tester::addFrontTestOrder()
 	bool passFlag = true;
 	std::vector<int> expectedVector;
 	
-	std::cout << "Test 10: Testing addFront() order on 10 element list.\n";
+	std::cout << "\nTest 10: Testing addFront() order on 10 element list.\n";
 
 	for(int i = 1, j = 11; i < 11; i++, j--)
 	{
@@ -184,7 +186,7 @@ void Tester::addBackTestOrder()
 	bool passFlag = true;
 	std::vector<int> expectedVector;
 
-	std::cout << "Test 11: Testing addBack() order on 10 element list.\n";
+	std::cout << "\nTest 11: Testing addBack() order on 10 element list.\n";
 
 	for(int i = 1; i < 11; i++)
 	{
@@ -221,11 +223,11 @@ void Tester::removeFrontTest()
 	LinkedListOfInts testList;
 	bool passFlag = true;
 
-	std::cout << "Test 12: Testing removeFront() on 10 element list.\n";
+	std::cout << "\nTest 12: Testing removeFront() on 10 element list.\n";
 
 	for(int i = 1; i < 11; i++)
 	{
-		testList.addBack(i);
+		testList.addFront(i);
 	}
 	std::cout << "List before removeFront() used 5 times: 10 9 8 7 6 5 4 3 2 1\n";
 	for(int i = 1; i < 6; i++)
@@ -260,11 +262,11 @@ void Tester::removeBackTest()
 	LinkedListOfInts testList;
 	bool passFlag = true;
 
-	std::cout << "Test 13: Testing removeBack() on 10 element list.\n";
+	std::cout << "\nTest 13: Testing removeBack() on 10 element list.\n";
 
 	for(int i = 1; i < 11; i++)
 	{
-		testList.addBack(i);
+		testList.addFront(i);
 	}
 	std::cout << "List before removeBack() used 5 times: 10 9 8 7 6 5 4 3 2 1\n";
 	for(int i = 1; i < 6; i++)
@@ -294,6 +296,70 @@ void Tester::removeBackTest()
 	}
 
 }
+void Tester::removeSizeTest()
+{
+	LinkedListOfInts testList1;
+	LinkedListOfInts testList2;
+
+	for(int i = 1; i < 11; i++)
+	{
+		testList1.addBack(i);
+		testList2.addBack(i);
+	}
+
+	std::cout << "\nTest 14: Testing size() on 10 element list after using removeFront().\n";
+	std::cout << "Size before remove: " << testList1.size();
+	testList1.removeFront();
+	std::cout << "\nSize after remove: " << testList1.size();
+
+	if(testList1.size() == 9)
+	{
+		std::cout << "\nTest 14: passed\n";
+	}
+	else
+	{
+		std::cout << "\nTest 14: failed\n";
+	}
+
+	std::cout << "\nTest 15: Testing size() on 10 element list after using removeBack().\n";
+	std::cout << "Size before remove: " << testList2.size();
+	testList2.removeBack();
+	std::cout << "\nSize after remove: " << testList2.size();
+
+	if(testList2.size() == 9)
+	{
+		std::cout << "\nTest 15: passed\n";
+	}
+	else
+	{
+		std::cout << "\nTest 15: failed\n";
+	}
+}
+void Tester::removeBoolReturnCheck()
+{
+	LinkedListOfInts testList1;
+	LinkedListOfInts testList2;
+
+	std::cout << "\nTest 16: Test removeFront() returns false on empty list.\n";
+	if(testList1.removeFront() == false)
+	{
+		std::cout << "Test 16: passed\n";
+	}
+	else
+	{
+		std::cout << "Test 15: failed\n";
+	}
+
+	std::cout << "\nTest 17: Test removeBack() returns false on empty list.\n";
+	if(testList2.removeBack() == false)
+	{
+		std::cout << "Test 17: passed\n";
+	}
+	else
+	{
+		std::cout << "Test 15: failed\n";
+	}
+}
 void Tester::runTests()
 {
 	isEmptyTest();
@@ -305,6 +371,8 @@ void Tester::runTests()
 	addBackTestOrder();
 	removeFrontTest();
 	removeBackTest();
+	removeSizeTest();
+	removeBoolReturnCheck();
 }
 
 

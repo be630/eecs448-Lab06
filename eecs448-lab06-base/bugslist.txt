@@ -1,0 +1,9 @@
+Bug List:
+
+1. isEmpty() returns true on populated lists. It happens with both addFront() and addBack(), so it seems that isEmpty() always returns true. I was thinking it was possible m_size was not incrementing in the add methods, but the size() method was tested and works after adding.
+
+2. addBack() adds elements to the front. Its possible the same code was used in both add methods, with the intentions of changing it later. (copy and pasted as a template, but never changed)
+
+3. removeFront() removes elements from the back. I think the problem is the same idea as the previous bug. (Same code in both methods)
+
+4. both remove methods do not decrease the size after an element is removed.

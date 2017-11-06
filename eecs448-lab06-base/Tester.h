@@ -19,6 +19,8 @@ class Tester
 	void addBackTestOrder();
 	void removeFrontTest();
 	void removeBackTest();
+	void removeSizeTest();
+	void removeBoolReturnCheck();
 
 	void runTests();
 };

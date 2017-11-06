@@ -24,7 +24,7 @@ int main(int argc, char** argv)
 
 
 
-	std::cout << "Running...\nAnd we're done.\nGoodbye.\n";
+	std::cout << "\nTests Complete\n\n\n";
 	
 	return (0);
 
